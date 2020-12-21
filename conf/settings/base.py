@@ -6,7 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 THIRD_PARTY_APPS = []
 
 CUSTOM_APPS = [
-    'apps.main'
+    'apps.main',
+    'apps.parsers',
+    'apps.bot'
 ]
 
 INSTALLED_APPS = [
