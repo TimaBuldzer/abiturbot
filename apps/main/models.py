@@ -24,22 +24,22 @@ class Subject(models.Model):
         return self.name if self.name else '--empty--'
 
 
-class SubjectTest(models.Model):
+class Question(models.Model):
     question = models.TextField()
     subject = models.ForeignKey(Subject, null=True, blank=True, on_delete=models.CASCADE)
     source = models.ForeignKey(Source, null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
-        verbose_name = 'Subject test'
-        verbose_name_plural = 'Subject tests'
-        db_table = 'subject_tests'
+        verbose_name = 'Question'
+        verbose_name_plural = 'Questions'
+        db_table = 'questions'
 
     def __str__(self):
         return self.question[:10]
 
 
 class Answer(models.Model):
-    question = models.ForeignKey(SubjectTest, null=True, blank=True, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, null=True, blank=True, on_delete=models.CASCADE)
     answer = models.TextField()
     letter = models.CharField(max_length=1, blank=True, null=True)
     is_right = models.BooleanField(default=False)

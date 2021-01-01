@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import TestRuParser
+from .views import CreateTest
 
 urlpatterns = [
-    path('', TestRuParser.as_view())
+    path('', CreateTest.as_view())
 ]

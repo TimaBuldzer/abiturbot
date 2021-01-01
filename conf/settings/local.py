@@ -15,6 +15,5 @@ DATABASES = {
     }
 }
 
-STATIC_URL = '/static/'
 
 from .base import *

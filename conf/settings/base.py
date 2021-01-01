@@ -1,11 +1,15 @@
+import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Application definition
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'rest_framework',
+]
 
 CUSTOM_APPS = [
+    'apps.api',
     'apps.main',
     'apps.parsers',
     'apps.bot'
@@ -47,6 +51,10 @@ TEMPLATES = [
         },
     },
 ]
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+}
 
 WSGI_APPLICATION = 'conf.wsgi.application'
 
@@ -74,3 +82,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+BOT_TOKEN = '1207001451:AAFKiO4I5P3QRxS5cAVu3HOQvO9t7RTbUDc'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
