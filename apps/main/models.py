@@ -1,6 +1,17 @@
 from django.db import models
 
 
+class Source(models.Model):
+    name = models.CharField(max_length=250, blank=True, null=True)
+    show = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = 'sources'
+
+    def __str__(self):
+        return self.name
+
+
 class Subject(models.Model):
     name = models.CharField(max_length=250, blank=True, null=True)
 
@@ -16,6 +27,7 @@ class Subject(models.Model):
 class SubjectTest(models.Model):
     question = models.TextField()
     subject = models.ForeignKey(Subject, null=True, blank=True, on_delete=models.CASCADE)
+    source = models.ForeignKey(Source, null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
         verbose_name = 'Subject test'
@@ -29,6 +41,7 @@ class SubjectTest(models.Model):
 class Answer(models.Model):
     question = models.ForeignKey(SubjectTest, null=True, blank=True, on_delete=models.CASCADE)
     answer = models.TextField()
+    letter = models.CharField(max_length=1, blank=True, null=True)
     is_right = models.BooleanField(default=False)
 
     class Meta:

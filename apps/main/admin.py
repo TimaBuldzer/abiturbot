@@ -16,7 +16,6 @@ class SubjectAdmin(admin.ModelAdmin):
 class SubjectTestAdmin(admin.ModelAdmin):
     list_display = ['id', 'question', 'subject']
     search_fields = ['question']
-    list_filter = ['subject']
     list_editable = ['question', 'subject']
     inlines = [AnswerInline]
 
@@ -24,7 +23,7 @@ class SubjectTestAdmin(admin.ModelAdmin):
 class AnswerAdmin(admin.ModelAdmin):
     list_display = ['id', 'question', 'answer', 'is_right']
     search_fields = ['question', 'answer']
-    list_filter = ['question', 'is_right']
+    list_filter = ['is_right']
     list_editable = ['question', 'answer', 'is_right']
 
 

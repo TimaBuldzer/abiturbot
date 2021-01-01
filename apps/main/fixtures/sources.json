@@ -1,0 +1,10 @@
+[
+  {
+    "model": "main.Source",
+    "pk": 1,
+    "fields": {
+      "name": "Test.ru",
+      "show": true
+    }
+  }
+]

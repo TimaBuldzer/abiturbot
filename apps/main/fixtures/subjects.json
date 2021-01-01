@@ -1,0 +1,51 @@
+[
+  {
+    "model": "main.Subject",
+    "pk": 1,
+    "fields": {
+      "name": "Математика"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 2,
+    "fields": {
+      "name": "Физика"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 3,
+    "fields": {
+      "name": "Русский язык"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 4,
+    "fields": {
+      "name": "Английский язык"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 5,
+    "fields": {
+      "name": "История"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 6,
+    "fields": {
+      "name": "Химия"
+    }
+  },
+  {
+    "model": "main.Subject",
+    "pk": 7,
+    "fields": {
+      "name": "Биология"
+    }
+  }
+]
