@@ -82,8 +82,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-BOT_TOKEN = '1207001451:AAFKiO4I5P3QRxS5cAVu3HOQvO9t7RTbUDc'
+BOT_TOKEN = '1207001451:AAGssSqftsggIkmLXu2lv83uFdXciuXNjgI'
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
