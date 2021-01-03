@@ -12,7 +12,8 @@ CUSTOM_APPS = [
     'apps.api',
     'apps.main',
     'apps.parsers',
-    'apps.bot'
+    'apps.bot',
+    'apps.users'
 ]
 
 INSTALLED_APPS = [
@@ -86,3 +87,4 @@ BOT_TOKEN = '1207001451:AAGssSqftsggIkmLXu2lv83uFdXciuXNjgI'
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+AUTH_USER_MODEL = 'users.User'
