@@ -1,5 +1,4 @@
 from aiogram import types
-from aiogram.dispatcher import FSMContext
 from apps.bot import queries
 from apps.bot.misc import dp
 from apps.bot import keyboards
@@ -7,7 +6,7 @@ from apps.bot import states
 
 
 @dp.message_handler(commands='start')
-async def cmd_start(message: types.Message):
+async def start_bot(message: types.Message):
     await states.ContactForm.phone.set()
 
     await message.answer(
@@ -20,9 +19,8 @@ async def cmd_start(message: types.Message):
 
 
 @dp.message_handler(state=states.ContactForm.phone, content_types=['contact'])
-async def register_user(message: types.Message, state: FSMContext):
-    u = queries.User()
-    await u.check_if_user_exists(
+async def register_user(message: types.Message):
+    await queries.User().get_or_create_user(
         phone=message.contact.phone_number,
         name=message.contact.first_name,
         tg_id=message.contact.user_id

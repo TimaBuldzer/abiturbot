@@ -6,32 +6,26 @@ import random
 
 class User:
 
-    def __init__(self):
-        self.phone = None
-        self.tg_id = None
-        self.name = None
-
+    @staticmethod
     @sync_to_async
-    def get_user(self):
-        return user_models.User.objects.get(telegram_id=self.tg_id)
+    def get_user(tg_id):
+        return user_models.User.objects.get(telegram_id=tg_id)
 
-    async def check_if_user_exists(self, tg_id, phone, name):
-
-        self.phone = phone
-        self.tg_id = tg_id
-        self.name = name
+    @classmethod
+    async def get_or_create_user(cls, tg_id, phone, name):
 
         try:
-            await self.get_user()
+            await cls.get_user(tg_id)
         except user_models.User.DoesNotExist:
-            await self.create_user()
+            await cls.create_user(phone, name, tg_id)
 
+    @staticmethod
     @sync_to_async
-    def create_user(self):
+    def create_user(phone, name, tg_id):
         user_models.User.objects.create(
-            phone=self.phone,
-            name=self.name,
-            telegram_id=self.tg_id
+            phone=phone,
+            name=name,
+            telegram_id=tg_id
         )
 
 
@@ -47,10 +41,11 @@ class SubjectTest:
         answers = main_models.Answer.objects.filter(question=question)
         return answers
 
+    @classmethod
     @sync_to_async
-    def get_test(self, exclude):
-        question = self._get_question(exclude)
-        answers = self._get_answers(question)
+    def get_test(cls, exclude):
+        question = cls._get_question(exclude)
+        answers = cls._get_answers(question)
 
         return {
             'question': {

@@ -1,7 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
-from aiogram.dispatcher.filters.state import StatesGroup, State
 from asgiref.sync import sync_to_async
 
 from apps.bot.queries import SubjectTest
@@ -10,14 +9,9 @@ from apps.bot.misc import dp
 tests = SubjectTest()
 
 
-@sync_to_async
-def get_test(exclude):
-    return SubjectTest().get_test(exclude)
-
-
-# States
-class Form(StatesGroup):
-    answer = State()
+@dp.callback_query_handler(lambda c: c.data == 'start_test')
+async def process_callback_start_test_button(callback_query: types.CallbackQuery):
+    await callback_query.answer('Нажата первая кнопка!')
 
 #
 # @dp.message_handler(commands='start')
