@@ -15,5 +15,12 @@ DATABASES = {
     }
 }
 
+WEBHOOK_HOST = 'http://127.0.0.1:8000/'
+WEBHOOK_PATH = '/api/v1/'
+WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+
+WEBAPP_HOST = '127.0.0.1'  # or ip
+WEBAPP_PORT = 8000
+
 
 from .base import *
