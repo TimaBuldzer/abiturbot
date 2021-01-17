@@ -22,5 +22,7 @@ WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 WEBAPP_HOST = '127.0.0.1'  # or ip
 WEBAPP_PORT = 8000
 
-
 from .base import *
+import django_heroku
+
+django_heroku.settings(locals())

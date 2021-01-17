@@ -1,9 +1,19 @@
-### This project was created to help Uzbekistan's applicants apply to university
-
-
-#### This project will contain
-
-<ul>
-    <li>telegram bot</li>
-    <li>parsing scripts with django backend</li>
-</ul>
+aiogram==2.11.2
+aiohttp==3.7.3
+asgiref==3.3.1
+async-timeout==3.0.1
+attrs==20.3.0
+Babel==2.9.0
+certifi==2020.12.5
+chardet==3.0.4
+Django==3.1.4
+djangorestframework==3.12.2
+idna==2.10
+multidict==5.1.0
+psycopg2==2.8.6
+pytz==2020.4
+requests==2.25.1
+sqlparse==0.4.1
+typing-extensions==3.7.4.3
+urllib3==1.26.2
+yarl==1.6.3
